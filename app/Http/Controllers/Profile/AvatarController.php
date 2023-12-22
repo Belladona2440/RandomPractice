@@ -10,6 +10,7 @@ class AvatarController extends Controller
 {
     public function update(UpdateAvatarRequest $request)
     {
-        return back();
+        $request->file('avatar')->store('avatar');
+        return back()->with('message', 'Avatar is updated');
     }
 }
